@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cabinet Daniels & Associés – Avocats à Amboise</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Newsreader:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--vert:#123528;--vert2:#0b241a;--or:#b08d3c;--fond:#f7f6f2;--texte:#1a201c;--carte:#fff;--bord:#dcd9cd}
+@media(prefers-color-scheme:dark){:root{--fond:#0d1a14;--texte:#ecebe4;--carte:#14261d;--bord:#2b4034}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:'Instrument Sans',system-ui,sans-serif;background:var(--fond);color:var(--texte);line-height:1.65}
+h1,h2,h3{font-family:'Newsreader',Georgia,serif;line-height:1.15;margin:0 0 .4em}
+header{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;padding:14px 5vw;background:var(--vert2);color:#fff;border-bottom:2px solid var(--or)}
+header b{font-family:'Newsreader',serif;font-size:1.35rem}header b i{color:var(--or)}
+nav{display:flex;flex-wrap:wrap;gap:4px 20px}nav a{color:#fff;text-decoration:none;opacity:.85}nav a:hover{opacity:1;text-decoration:underline}
+.hero{background:var(--vert);color:#fff;padding:14vh 5vw 12vh}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);max-width:15ch}.hero h1 i{color:var(--or)}
+.hero p{max-width:52ch;font-size:1.15rem;opacity:.92}
+.btn{display:inline-block;padding:.8em 1.5em;background:var(--or);color:#0b241a;font-weight:600;text-decoration:none;border:2px solid var(--or);border-radius:3px;margin:.4em .6em .4em 0;cursor:pointer;font:inherit;font-weight:600}
+.btn.o{background:transparent;color:#fff;border-color:#fff}
+:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+section{padding:9vh 5vw;max-width:1100px;margin:auto}section h2{font-size:2.2rem}
+.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.carte{background:var(--carte);border:1px solid var(--bord);border-top:3px solid var(--or);padding:20px;border-radius:3px}.carte p{margin:0}
+.eq{display:flex;gap:14px;align-items:center}.eq .av{width:56px;height:56px;border-radius:50%;background:var(--vert);color:var(--or);display:grid;place-items:center;font:700 1.3rem Newsreader,serif;flex:none}
+form{background:var(--carte);border:1px solid var(--bord);padding:24px;border-radius:3px;max-width:680px}
+label{display:block;font-weight:600;font-size:.88rem;margin:.9em 0 .25em}
+input,select,textarea{font:inherit;width:100%;padding:.65em .8em;border:1px solid var(--bord);border-radius:3px;background:var(--fond);color:var(--texte)}
+.msg{min-height:1.4em}.ok{color:#2b7a4b;font-weight:600}.err{color:#b3261e}
+.code{font:600 1.15rem ui-monospace,monospace;background:var(--fond);padding:.3em .6em;border:1px dashed var(--or);user-select:all}
+footer{background:var(--vert2);color:#c8d1cb;padding:28px 5vw;font-size:.9rem}footer a{color:#fff}
+</style>
+</head>
+<body>
+<header>
+  <b>Daniels <i>&</i> Associés</b>
+  <nav aria-label="Navigation"><a href="#cabinet">Le cabinet</a><a href="#domaines">Domaines</a><a href="#equipe">L'équipe</a><a href="#ticket">Nous contacter</a><a href="#suivi">Suivre mon dossier</a><a href="espace.html">Espace barreau</a></nav>
+</header>
+
+<div class="hero">
+  <h1>Défendre vos droits, <i>avec rigueur.</i></h1>
+  <p>Le Cabinet Daniels & Associés accompagne les citoyens d'Amboise devant toutes les juridictions de DayFrance RP.</p>
+  <a class="btn" href="#ticket">Ouvrir un ticket</a><a class="btn o" href="#domaines">Nos domaines</a>
+</div>
+
+<section id="cabinet">
+  <h2>Un cabinet à votre écoute</h2>
+  <p style="max-width:65ch">Dirigé par Me Nathan Daniels, le cabinet vous conseille, vous représente et vous défend. Chaque demande est étudiée par un avocat, dans la confidentialité la plus stricte.</p>
+</section>
+
+<section id="domaines">
+  <h2>Domaines d'intervention</h2>
+  <div class="grille">
+    <div class="carte"><h3>Droit pénal</h3><p>Garde à vue, comparution, défense face à la police et à la justice.</p></div>
+    <div class="carte"><h3>Droit routier</h3><p>Contestation d'amendes, retraits de permis, infractions.</p></div>
+    <div class="carte"><h3>Droit des affaires</h3><p>Création d'entreprise, contrats, litiges commerciaux.</p></div>
+    <div class="carte"><h3>Droit civil</h3><p>Litiges entre particuliers, biens, successions.</p></div>
+  </div>
+</section>
+
+<section id="equipe">
+  <h2>L'équipe</h2>
+  <div class="grille">
+    <div class="carte eq"><div class="av">ND</div><div><h3>Me Nathan Daniels</h3><p>Avocat associé, fondateur</p></div></div>
+    <div class="carte eq"><div class="av">+</div><div><h3>Vos avocats associés</h3><p>Modifiez cette carte dans le code.</p></div></div>
+  </div>
+</section>
+
+<section id="ticket">
+  <h2>Ouvrir un ticket</h2>
+  <p>Décrivez votre situation. Un avocat vous répond par le moyen de contact indiqué.</p>
+  <form id="f-ticket">
+    <label for="t-nom">Nom et prénom (RP)</label><input id="t-nom" required maxlength="80">
+    <label for="t-contact">Téléphone RP ou pseudo Discord</label><input id="t-contact" required maxlength="80">
+    <label for="t-sujet">Type d'affaire</label>
+    <select id="t-sujet"><option>Droit pénal</option><option>Droit routier</option><option>Droit des affaires</option><option>Droit civil</option><option>Autre</option></select>
+    <label for="t-urg">Urgence</label>
+    <select id="t-urg"><option>Normale</option><option>Urgente (garde à vue, audience proche)</option></select>
+    <label for="t-msg">Votre demande</label><textarea id="t-msg" rows="5" required maxlength="2000"></textarea>
+    <p class="msg" id="t-res" role="status"></p>
+    <button class="btn" style="color:#0b241a">Envoyer ma demande</button>
+  </form>
+</section>
+
+<section id="suivi">
+  <h2>Suivre mon dossier</h2>
+  <form id="f-suivi">
+    <label for="s-code">Code de suivi</label><input id="s-code" required>
+    <p class="msg" id="s-res" role="status"></p>
+    <button class="btn" style="color:#0b241a">Consulter</button>
+  </form>
+</section>
+
+<footer>Cabinet Daniels & Associés — cabinet d'avocats fictif du serveur DayFrance RP (Nova Life, Amboise). <a id="lien-discord" href="#">Discord</a></footer>
+
+<script type="module">
+// ⚙️ Collez la config Firebase et le lien Discord
+const firebaseConfig={apiKey:"",authDomain:"",projectId:"",appId:""};
+const DISCORD="https://discord.gg/VOTRE-LIEN";
+
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getFirestore,doc,setDoc,getDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const db=getFirestore(initializeApp(firebaseConfig));
+const $=id=>document.getElementById(id);
+$("lien-discord").href=DISCORD;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+$("f-ticket").onsubmit=async e=>{
+  e.preventDefault();
+  const id=crypto.randomUUID().replace(/-/g,"").slice(0,12).toUpperCase();
+  try{
+    await setDoc(doc(db,"tickets",id),{nom:$("t-nom").value.trim(),contact:$("t-contact").value.trim(),sujet:$("t-sujet").value,urgence:$("t-urg").value,message:$("t-msg").value.trim(),statut:"Nouveau",reponse:"",creeLe:serverTimestamp()});
+    $("t-res").innerHTML=`<span class="ok">Demande envoyée.</span> Conservez votre code de suivi : <span class="code">${id}</span>`;
+    e.target.reset();
+  }catch{$("t-res").innerHTML='<span class="err">Envoi impossible. Réessayez ou contactez-nous sur Discord.</span>'}
+};
+$("f-suivi").onsubmit=async e=>{
+  e.preventDefault();
+  try{
+    const s=await getDoc(doc(db,"tickets",$("s-code").value.trim().toUpperCase()));
+    $("s-res").innerHTML=s.exists()?`<b>Statut : ${esc(s.data().statut)}</b><br>${s.data().reponse?"Réponse du cabinet : "+esc(s.data().reponse):"Pas encore de réponse."}`:'<span class="err">Aucun dossier avec ce code.</span>';
+  }catch{$("s-res").innerHTML='<span class="err">Consultation impossible.</span>'}
+};
+</script>
+</body>
+</html>

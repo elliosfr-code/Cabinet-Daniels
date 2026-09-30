@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espace barreau – Daniels & Associés</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Newsreader:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--vert:#123528;--vert2:#0b241a;--or:#b08d3c;--fond:#f7f6f2;--texte:#1a201c;--carte:#fff;--bord:#dcd9cd}
+@media(prefers-color-scheme:dark){:root{--fond:#0d1a14;--texte:#ecebe4;--carte:#14261d;--bord:#2b4034}}
+*{box-sizing:border-box}body{margin:0;font-family:'Instrument Sans',system-ui,sans-serif;background:var(--fond);color:var(--texte)}
+h2,h3{font-family:'Newsreader',serif;margin:.2em 0}
+header{background:var(--vert2);color:#fff;padding:12px 4vw;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;border-bottom:2px solid var(--or)}
+header a{color:#fff}main{max-width:1050px;margin:auto;padding:22px 4vw}
+.carte{background:var(--carte);border:1px solid var(--bord);border-radius:3px;padding:18px;margin-bottom:16px}
+input,select,textarea,button{font:inherit;padding:.6em .8em;border:1px solid var(--bord);border-radius:3px;background:var(--fond);color:var(--texte);width:100%}
+label{display:block;font-size:.85rem;font-weight:600;margin:.7em 0 .2em}
+button{width:auto;cursor:pointer;background:var(--vert);color:#fff;border-color:var(--vert);font-weight:600}button.g{background:transparent;color:var(--texte);border-color:var(--bord)}button.d{background:#b3261e;border-color:#b3261e}
+:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}.tabs button{background:transparent;color:var(--texte);border-color:var(--bord)}.tabs button[aria-selected=true]{background:var(--vert);color:#fff;border-color:var(--vert)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.it{border:1px solid var(--bord);border-left:4px solid var(--or);border-radius:3px;padding:12px 14px;margin-bottom:10px;background:var(--carte)}
+.it.u{border-left-color:#b3261e}.tag{font-size:.75rem;font-weight:600;padding:.15em .6em;border-radius:99px;background:var(--vert);color:#fff}
+.hide{display:none}.msg{color:#b3261e;min-height:1.3em}small{opacity:.75}
+</style>
+</head>
+<body>
+<header><b style="font-family:'Newsreader',serif;font-size:1.25rem">Espace barreau <span id="qui" style="opacity:.75;font-weight:400;font-size:.9rem"></span></b>
+<div><a href="index.html">Retour au site</a> <button id="deco" class="g hide" style="color:#fff;border-color:#fff;margin-left:12px">Déconnexion</button></div></header>
+<main>
+<div id="v-login" class="carte" style="max-width:420px;margin:8vh auto">
+  <h2>Connexion</h2><p>Réservée aux avocats et collaborateurs du cabinet. Comptes créés par Me Daniels.</p>
+  <label for="email">E-mail</label><input id="email" type="email" autocomplete="username">
+  <label for="mdp">Mot de passe</label><input id="mdp" type="password" autocomplete="current-password">
+  <p class="msg" id="msg-login"></p><button id="btn-login">Se connecter</button>
+</div>
+
+<div id="v-app" class="hide">
+  <div class="tabs" role="tablist">
+    <button role="tab" data-t="tickets" aria-selected="true">Tickets</button>
+    <button role="tab" data-t="planning" aria-selected="false">Planning</button>
+    <button role="tab" data-t="barreau" aria-selected="false">Barreau</button>
+  </div>
+
+  <div id="t-tickets"><div id="l-tickets"></div></div>
+
+  <div id="t-planning" class="hide">
+    <div class="carte"><h3>Nouveau rendez-vous / audience</h3>
+      <div class="row">
+        <div><label for="p-date">Date</label><input id="p-date" type="date"></div>
+        <div><label for="p-heure">Heure</label><input id="p-heure" type="time"></div>
+        <div><label for="p-type">Type</label><select id="p-type"><option>Rendez-vous client</option><option>Audience</option><option>Garde à vue</option><option>Réunion</option></select></div>
+        <div><label for="p-client">Client</label><input id="p-client"></div>
+        <div><label for="p-lieu">Lieu</label><input id="p-lieu" placeholder="Cabinet, tribunal…"></div>
+        <div><label for="p-avocat">Avocat</label><input id="p-avocat"></div>
+      </div>
+      <label for="p-note">Notes</label><textarea id="p-note" rows="2"></textarea>
+      <p class="msg" id="msg-p"></p><button id="btn-p">Ajouter au planning</button>
+    </div>
+    <div id="l-planning"></div>
+  </div>
+
+  <div id="t-barreau" class="hide">
+    <div class="carte"><h3>Ajouter au registre du barreau</h3>
+      <div class="row">
+        <div><label for="b-nom">Nom</label><input id="b-nom"></div>
+        <div><label for="b-role">Fonction</label><select id="b-role"><option>Avocat</option><option>Bâtonnier</option><option>Procureur</option><option>Juge</option><option>Greffier</option><option>Confrère</option></select></div>
+        <div><label for="b-spe">Spécialité / cabinet</label><input id="b-spe"></div>
+        <div><label for="b-contact">Contact (tél. RP / Discord)</label><input id="b-contact"></div>
+      </div>
+      <p class="msg" id="msg-b"></p><button id="btn-b">Ajouter</button>
+    </div>
+    <div id="l-barreau"></div>
+  </div>
+</div>
+</main>
+
+<script type="module">
+// ⚙️ Collez la même config Firebase que dans index.html
+const firebaseConfig={apiKey:"",authDomain:"",projectId:"",appId:""};
+
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,collection,doc,getDoc,addDoc,updateDoc,deleteDoc,onSnapshot,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let user=null,unsubs=[];
+
+$("btn-login").onclick=async()=>{$("msg-login").textContent="";try{await signInWithEmailAndPassword(auth,$("email").value.trim(),$("mdp").value)}catch{$("msg-login").textContent="E-mail ou mot de passe incorrect."}};
+$("deco").onclick=()=>signOut(auth);
+
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));
+  ["tickets","planning","barreau"].forEach(t=>$("t-"+t).classList.toggle("hide",t!==b.dataset.t));
+});
+
+onAuthStateChanged(auth,async u=>{
+  unsubs.forEach(f=>f());unsubs=[];
+  if(!u){user=null;$("v-login").classList.remove("hide");$("v-app").classList.add("hide");$("deco").classList.add("hide");$("qui").textContent="";return}
+  const s=await getDoc(doc(db,"membres",u.uid));
+  if(!s.exists()){$("msg-login").textContent="Compte non autorisé : demandez un accès à Me Daniels.";signOut(auth);return}
+  user={uid:u.uid,...s.data()};
+  $("qui").textContent="— "+(user.nom||"");
+  $("v-login").classList.add("hide");$("v-app").classList.remove("hide");$("deco").classList.remove("hide");
+  unsubs.push(onSnapshot(collection(db,"tickets"),sn=>tickets(sn.docs.map(d=>({id:d.id,...d.data()})))));
+  unsubs.push(onSnapshot(collection(db,"planning"),sn=>planning(sn.docs.map(d=>({id:d.id,...d.data()})))));
+  unsubs.push(onSnapshot(collection(db,"barreau"),sn=>barreau(sn.docs.map(d=>({id:d.id,...d.data()})))));
+});
+
+const STATUTS=["Nouveau","En cours","En attente client","Traité","Clos"];
+function tickets(l){
+  l.sort((a,b)=>(b.creeLe?.seconds||0)-(a.creeLe?.seconds||0));
+  $("l-tickets").innerHTML=l.length?l.map(t=>`<div class="it ${t.urgence?.startsWith("Urgente")?"u":""}" data-id="${t.id}">
+    <b>${esc(t.nom)}</b> <span class="tag">${esc(t.statut)}</span> <small>· ${esc(t.sujet)} · ${esc(t.urgence)} · code ${esc(t.id)}</small>
+    <p>${esc(t.message)}</p><small>Contact : ${esc(t.contact)}</small>
+    <label>Réponse visible par le client</label><textarea rows="2" data-r>${esc(t.reponse)}</textarea>
+    <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><select data-s style="width:auto">${STATUTS.map(s=>`<option ${s===t.statut?"selected":""}>${s}</option>`).join("")}</select><button data-save>Enregistrer</button><button class="d" data-del>Supprimer</button></div></div>`).join(""):"<p>Aucun ticket pour le moment.</p>";
+  document.querySelectorAll("#l-tickets .it").forEach(e=>{
+    const ref=doc(db,"tickets",e.dataset.id);
+    e.querySelector("[data-save]").onclick=()=>updateDoc(ref,{statut:e.querySelector("[data-s]").value,reponse:e.querySelector("[data-r]").value.trim()});
+    e.querySelector("[data-del]").onclick=()=>{if(confirm("Supprimer ce ticket ?"))deleteDoc(ref)};
+  });
+}
+function planning(l){
+  l.sort((a,b)=>`${a.date}${a.heure}`.localeCompare(`${b.date}${b.heure}`));
+  $("l-planning").innerHTML=l.length?l.map(p=>`<div class="it"><b>${esc(p.date)} à ${esc(p.heure)}</b> <span class="tag">${esc(p.type)}</span><br>${esc(p.client)} · ${esc(p.lieu)} · Me ${esc(p.avocat)}<br><small>${esc(p.note)}</small><br><button class="d" data-id="${p.id}">Supprimer</button></div>`).join(""):"<p>Planning vide.</p>";
+  document.querySelectorAll("#l-planning [data-id]").forEach(b=>b.onclick=()=>deleteDoc(doc(db,"planning",b.dataset.id)));
+}
+function barreau(l){
+  l.sort((a,b)=>(a.nom||"").localeCompare(b.nom||""));
+  $("l-barreau").innerHTML=l.length?l.map(m=>`<div class="it"><b>${esc(m.nom)}</b> <span class="tag">${esc(m.role)}</span><br>${esc(m.spe)} · <small>${esc(m.contact)}</small><br><button class="d" data-id="${m.id}">Retirer</button></div>`).join(""):"<p>Registre vide.</p>";
+  document.querySelectorAll("#l-barreau [data-id]").forEach(b=>b.onclick=()=>deleteDoc(doc(db,"barreau",b.dataset.id)));
+}
+$("btn-p").onclick=async()=>{
+  if(!$("p-date").value||!$("p-client").value.trim()){$("msg-p").textContent="La date et le client sont obligatoires.";return}
+  $("msg-p").textContent="";
+  await addDoc(collection(db,"planning"),{date:$("p-date").value,heure:$("p-heure").value,type:$("p-type").value,client:$("p-client").value.trim(),lieu:$("p-lieu").value.trim(),avocat:$("p-avocat").value.trim()||user.nom||"",note:$("p-note").value.trim(),par:user.uid});
+  ["p-client","p-lieu","p-note"].forEach(i=>$(i).value="");
+};
+$("btn-b").onclick=async()=>{
+  if(!$("b-nom").value.trim()){$("msg-b").textContent="Le nom est obligatoire.";return}
+  $("msg-b").textContent="";
+  await addDoc(collection(db,"barreau"),{nom:$("b-nom").value.trim(),role:$("b-role").value,spe:$("b-spe").value.trim(),contact:$("b-contact").value.trim(),par:user.uid});
+  ["b-nom","b-spe","b-contact"].forEach(i=>$(i).value="");
+};
+</script>
+</body>
+</html>
